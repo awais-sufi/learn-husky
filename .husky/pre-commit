@@ -1,3 +1,35 @@
 echo "🔍 Running pre-commit checks..."
 
+# Run TypeScript type checking
+echo "📝 Checking TypeScript types..."
+pnpm type-check
+if [ $? -ne 0 ]; then
+  echo "❌ TypeScript type checking failed. Please fix the errors before committing."
+  exit 1
+fi
+
+# Run ESLint on all files
+echo "🔧 Running ESLint..."
 pnpm lint
+if [ $? -ne 0 ]; then
+  echo "❌ ESLint found errors. Please fix the errors before committing."
+  exit 1
+fi
+
+# Run Prettier format check
+echo "💅 Checking code formatting..."
+pnpm format:check
+if [ $? -ne 0 ]; then
+  echo "❌ Code formatting check failed. Please run 'pnpm format' to fix formatting issues."
+  exit 1
+fi
+
+# Run lint-staged for staged files
+echo "🚀 Running lint-staged on staged files..."
+npx lint-staged
+if [ $? -ne 0 ]; then
+  echo "❌ lint-staged failed. Please fix the issues before committing."
+  exit 1
+fi
+
+echo "✅ All pre-commit checks passed!"

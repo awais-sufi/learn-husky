@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+build
+.firebase
+next-env.d.ts
+src/services/supabase-consumer
+pnpm-lock.yaml
