@@ -2,7 +2,7 @@ name: Vercel Production Deploy
 
 on:
   push:
-    branches: [main, develop, github]
+    branches: [main, develop]
 
 permissions:
   contents: read
