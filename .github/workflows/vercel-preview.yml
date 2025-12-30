@@ -1,0 +1,33 @@
+name: Vercel Preview Deploy
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  preview:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Deploy Preview
+        run: |
+          pnpm dlx vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
+          pnpm dlx vercel build --token=$VERCEL_TOKEN
+          pnpm dlx vercel deploy --prebuilt --token=$VERCEL_TOKEN
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
