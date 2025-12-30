@@ -1,0 +1,32 @@
+name: Vercel Production Deploy
+
+on:
+  push:
+    branches: [main, develop, github]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Deploy Production
+        run: |
+          pnpm dlx vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+          pnpm dlx vercel build --prod --token=$VERCEL_TOKEN
+          pnpm dlx vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
