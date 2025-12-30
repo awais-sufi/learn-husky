@@ -1,4 +1,4 @@
-# Landing Page Template built with Next JS 16+, Tailwind CSS 4 and TypeScript 
+# Landing Page Template built with Next JS 16+, Tailwind CSS 4 and TypeScript
 
 🚀 Landing Page theme written in Next.js, Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Netlify, PostCSS, Tailwind CSS.
 
@@ -37,7 +37,8 @@ Built-in feature from Next.js:
 - Features
 - CTA banner
 - Footer
-- 
+-
+
 ### Philosophy
 
 - Minimal code
