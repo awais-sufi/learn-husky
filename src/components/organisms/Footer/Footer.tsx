@@ -7,7 +7,7 @@ const footerLinks = {
   Resources: ['Community', 'Support', 'API', 'Status'],
 };
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className='border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black'>
       <div className='container mx-auto px-4 py-12'>
@@ -99,4 +99,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
