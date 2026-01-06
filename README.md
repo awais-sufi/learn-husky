@@ -24,31 +24,192 @@ Developer experience first:
 - 🌈 Include a FREE theme
 - 💯 Maximize lighthouse score
 
-Built-in feature from Next.js:
+## 🛠️ Development Setup
 
-- ☕ Minify HTML & CSS
-- 💨 Live reload
-- ✅ Cache busting
+### Prerequisites
 
-### Included Components
+- Node.js 18+
+- pnpm package manager (install with `npm install -g pnpm` or `corepack enable`)
 
-- Navbar
-- Hero
-- Features
-- CTA banner
-- Footer
--
+### Why pnpm?
 
-### Philosophy
+- **Faster installs**: Up to 2x faster than npm/yarn
+- **Disk space efficient**: Uses hard links and symlinks to avoid duplication
+- **Strict**: Prevents phantom dependencies and ensures reproducible builds
+- **Monorepo friendly**: Excellent workspace support
 
-- Minimal code
-- SEO-friendly
-- 🚀 Production-ready
+### Installation
 
-### Requirements
+1. Clone the repository:
 
-- Node.js and npm
+```bash
+git clone <repository-url>
+cd alasan-onbarder
+```
 
-### Contributions
+2. Install dependencies:
 
-Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug.
+```bash
+pnpm install
+```
+
+3. Start the development server:
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 📝 Available Scripts
+
+### Development
+
+- `pnpm dev` - Start development server on http://localhost:3000
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm type-check` - Run TypeScript type checking
+
+### Code Quality
+
+- `pnpm lint` - Run ESLint on all files
+- `pnpm lint:fix` - Run ESLint with auto-fix
+- `pnpm format` - Format code with Prettier
+- `pnpm format:check` - Check code formatting
+
+### Package Management
+
+- `pnpm install` - Install all dependencies
+- `pnpm add <package>` - Add a new dependency
+- `pnpm add -D <package>` - Add a new dev dependency
+- `pnpm remove <package>` - Remove a dependency
+- `pnpm update` - Update all dependencies
+- `pnpm outdated` - Check for outdated packages
+- `pnpm audit` - Check for security vulnerabilities
+
+### Useful pnpm Commands
+
+- `pnpm list` - List installed packages
+- `pnpm why <package>` - Show why a package is installed
+- `pnpm exec <command>` - Run a command in the project context
+- `pnpm run <script>` - Run a specific script
+
+## 🔧 Code Quality
+
+This project enforces strict code quality standards:
+
+### ESLint Rules
+
+- TypeScript strict mode enabled
+- No `any` types allowed
+- Explicit return types required
+- Unused variables are errors
+- React hooks exhaustive dependencies
+- And many more strict rules
+
+### Prettier Configuration
+
+- Single quotes
+- Semicolons required
+- 2-space indentation
+- Trailing commas in ES5
+- Print width: 80 characters
+
+### Pre-commit Hooks
+
+- **TypeScript type checking** - Ensures no type errors
+- **ESLint** - Runs linting on all files
+- **Prettier format check** - Ensures code is properly formatted
+- **Lint-staged** - Runs linting and formatting on staged files
+- **Commit message validation** - Enforces conventional commit format
+- **Pre-push build check** - Ensures project builds successfully
+
+## 🚀 GitHub Actions
+
+This project includes automated lint and format checking:
+
+### Lint and Format Check
+
+Runs on every push and pull request to ensure code quality:
+
+- TypeScript type checking
+- ESLint linting
+- Prettier format checking
+
+### Workflow File
+
+- `.github/workflows/lint-and-format.yml` - Lint and format checks
+- `.github/README.md` - Detailed workflow documentation
+
+### Status Badge
+
+The project includes a status badge that shows the current state of the workflow. Update the repository URL in the badge link to match your repository.
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                 # Next.js App Router
+│   ├── globals.css     # Global styles
+│   ├── layout.tsx      # Root layout
+│   └── page.tsx        # Home page
+├── components/         # Reusable components
+├── lib/               # Utility functions
+└── types/             # TypeScript type definitions
+```
+
+## 🎨 Styling
+
+This project uses Tailwind CSS v4 for styling. The configuration is located in `tailwind.config.ts`.
+
+### Adding New Styles
+
+- Use Tailwind utility classes directly in JSX
+- For custom styles, add them to `src/app/globals.css`
+- Tailwind CSS v4 uses the new `@tailwindcss/postcss` plugin
+
+## 📦 Package Management
+
+This project uses pnpm for package management. The `packageManager` field in `package.json` ensures consistent package manager usage across the team.
+
+### Key Files
+
+- `package.json` - Project dependencies and scripts
+- `pnpm-lock.yaml` - Lockfile for reproducible installs
+- `packageManager` field specifies pnpm@10.16.1
+
+## 🚀 Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+### Build for Production
+
+```bash
+pnpm build
+pnpm start
+```
+
+### Deployment Platforms
+
+- **Vercel** (recommended) - Zero-config deployment
+- **Netlify** - Static site hosting
+- **Docker** - Containerized deployment
+
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## 🤝 Contributing
+
+1. Install dependencies: `pnpm install`
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and ensure they pass:
+   - `pnpm lint` - No linting errors
+   - `pnpm format:check` - Code is properly formatted
+   - `pnpm type-check` - No TypeScript errors
+   - `pnpm build` - Builds successfully
+4. Commit your changes: `git commit -m 'Add amazing feature'`
+5. Push to the branch: `git push origin feature/amazing-feature`
+6. Open a Pull Request
+
+## 📄 License
+
+This project is public and proprietary to Awais-sufi.
