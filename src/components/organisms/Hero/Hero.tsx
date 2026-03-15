@@ -2,7 +2,7 @@
 
 import { ArrowRight, Sparkles } from 'lucide-react';
 
-export default function Hero() {
+const Hero = () => {
   return (
     <section className='pt-32 pb-20 md:pt-40 md:pb-28'>
       <div className='container mx-auto px-4'>
@@ -53,4 +53,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
