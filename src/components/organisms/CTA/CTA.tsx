@@ -2,7 +2,7 @@
 
 import { ArrowRight } from 'lucide-react';
 
-export default function CTA() {
+const CTA = () => {
   return (
     <section className='py-20'>
       <div className='container mx-auto px-4'>
@@ -30,4 +30,6 @@ export default function CTA() {
       </div>
     </section>
   );
-}
+};
+
+export default CTA;

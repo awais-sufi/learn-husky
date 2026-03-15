@@ -38,7 +38,7 @@ const features = [
   },
 ];
 
-export default function Features() {
+const Features = () => {
   return (
     <section id='features' className='py-20 dark:bg-zinc-900/50'>
       <div className='container mx-auto px-4'>
@@ -73,4 +73,6 @@ export default function Features() {
       </div>
     </section>
   );
-}
+};
+
+export default Features;
